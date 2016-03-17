@@ -14,7 +14,7 @@
 <head lang="en">
 	<meta charset="UTF-8">
 	<title></title>
-	<!--<link rel="stylesheet" href="../lib/boostrap/dist/css/bootstrap.css">-->
+	<link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.css">
 	<script src="../lib/angular/angular.js"></script>
 	<script src="../lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 	<script src="app.js"></script>
@@ -23,9 +23,15 @@
 <p>This is the {{applicationName}}</p>
 
 <div ng-controller="FeedsController">
-	<button type="button" ng-click="getFeeds()">Get Feeds</button>
-
-	<li ng-repeat="feed in feeds"> {{feed.name}}</li>
+	<div ng-style="">
+		<menu visible="visible" alignment="left">
+			<menu-item hash="manageFeeds"><a ng-click="getFeeds()">Manage Feeds</a></menu-item>
+			<menu-item hash="managePools">Manage Pools</menu-item>
+		</menu>
+	</div>
+	<div>
+		<li ng-repeat="feed in feeds"> {{feed.name}}</li>
+	</div>
 </div>
 </body>
 </html>

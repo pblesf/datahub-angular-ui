@@ -12,5 +12,5 @@
 var datahub = angular.module('datahubUI', []);
 
 datahub.controller('ExampleController', ['$scope', function ($scope) {
-	$scope.applicationName = 'Datahub UI';
+	$scope.applicationName = "Datahub UI";
 }]);

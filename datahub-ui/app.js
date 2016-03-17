@@ -11,6 +11,22 @@
  */
 var datahub = angular.module('datahubUI', []);
 
-datahub.controller('ExampleController', ['$scope', function ($scope) {
+datahub.controller('ExampleController', ['$scope','$http', function ($scope, $http) {
 	$scope.applicationName = "Datahub UI";
+}]);
+
+datahub.controller('FeedsController', ['$scope','$http', function ($scope, $http) {
+	$scope.feeds = [];
+
+	$scope.getFeeds = function () {
+		$http({
+			method: 'GET',
+			url: 'http://localhost:9797/datahub-webapp/v1/data-feeds',
+			headers: {'Content-Type': 'application/json', 'x-tenantId': 'single'}
+		})
+			.success(function (data, status) {
+				$scope.feeds = data;
+				console.log($scope.feeds)
+			})
+	}
 }]);

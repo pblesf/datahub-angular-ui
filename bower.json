@@ -1,0 +1,24 @@
+{
+  "name": "datahub-angular-ui",
+  "homepage": "https://github.com/pblesf/datahub-angular-ui",
+  "authors": [
+    "Pablo Bles <pablo.bles@hybris.com>",
+    "Rafal Gdowski <rafal.gdowski@hybris.com>"
+  ],
+  "description": "Angular UI for the Datahub",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.1",
+    "angular-bootstrap": "^1.2.4"
+  }
+}

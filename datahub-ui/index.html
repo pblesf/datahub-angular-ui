@@ -23,9 +23,15 @@
 <p>This is the {{applicationName}}</p>
 
 <div ng-controller="FeedsController">
-	<button type="button" ng-click="getFeeds()">Get Feeds</button>
-
-	<li ng-repeat="feed in feeds"> {{feed.name}}</li>
+	<div ng-style="">
+		<menu visible="visible" alignment="left">
+			<menu-item hash="manageFeeds"><a ng-click="getFeeds()">Manage Feeds</a></menu-item>
+			<menu-item hash="managePools">Manage Pools</menu-item>
+		</menu>
+	</div>
+	<div>
+		<li ng-repeat="feed in feeds"> {{feed.name}}</li>
+	</div>
 </div>
 <div ng-controller="PoolsController">
 	Search: <input ng-model="query"><br>

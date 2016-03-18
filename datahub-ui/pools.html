@@ -9,15 +9,16 @@
   ~ Information and shall use it only in accordance with the terms of the
   ~ license agreement you entered into with hybris.
   -->
-<div class="jumbotron text-center" ng-init="getPools()">
-	Search: <input ng-model="query"><br>
-	<select ng-model="orderProp">
+<div ng-init="getPools()">
+	Search: <input ng-model="query">
+	Sort:<select ng-model="orderProp">
 		<option value="poolName">Alphabetical</option>
 		<option value="poolId">Id</option>
 	</select>
 	<br>
+	</div>
+<div>
 	<table st-table="pools" class="table table-striped table-hover">
-		<caption>Pools</caption>
 		<thead>
 		<tr>
 			<th>Id</th>

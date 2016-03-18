@@ -24,9 +24,25 @@ datahub.controller('FeedsController', ['$scope','$http', function ($scope, $http
 			url: 'http://localhost:9797/datahub-webapp/v1/data-feeds',
 			headers: {'Content-Type': 'application/json', 'x-tenantId': 'single'}
 		})
-			.success(function (data, status) {
+			.success(function (data) {
 				$scope.feeds = data;
 				console.log($scope.feeds)
+			})
+	}
+}]);
+
+datahub.controller('PoolsController', ['$scope','$http', function ($scope, $http) {
+	$scope.feeds = [];
+
+	$scope.getPools = function () {
+		$http({
+			method: 'GET',
+			url: 'http://localhost:9797/datahub-webapp/v1/pools',
+			headers: {'Content-Type': 'application/json', 'x-tenantId': 'single'}
+		})
+			.success(function (data) {
+				$scope.pools = data;
+				console.log($scope.pools)
 			})
 	}
 }]);

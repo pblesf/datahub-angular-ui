@@ -33,5 +33,10 @@
 		<li ng-repeat="feed in feeds"> {{feed.name}}</li>
 	</div>
 </div>
+<div ng-controller="PoolsController">
+	<button type="button" ng-click="getPools()">Get Pools</button>
+
+	<li ng-repeat="pool in pools"> {{pool.poolName}}</li>
+</div>
 </body>
 </html>

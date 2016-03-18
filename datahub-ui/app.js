@@ -32,7 +32,7 @@ datahub.controller('FeedsController', ['$scope','$http', function ($scope, $http
 }]);
 
 datahub.controller('PoolsController', ['$scope','$http', function ($scope, $http) {
-	$scope.feeds = [];
+	$scope.pools = [];
 
 	$scope.getPools = function () {
 		$http({

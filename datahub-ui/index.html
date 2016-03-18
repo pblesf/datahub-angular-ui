@@ -26,35 +26,42 @@
 	<div ng-style="">
 		<menu visible="visible" alignment="left">
 			<menu-item hash="manageFeeds"><a ng-click="getFeeds()">Manage Feeds</a></menu-item>
-			<menu-item hash="managePools">Manage Pools</menu-item>
 		</menu>
 	</div>
 	<div>
 		<li ng-repeat="feed in feeds"> {{feed.name}}</li>
 	</div>
 </div>
-<div ng-controller="PoolsController">
-	Search: <input ng-model="query"><br>
-	<select ng-model="orderProp">
-		<option value="poolName">Alphabetical</option>
-		<option value="poolId">Id</option>
-	</select>
-	<br>
-	<button type="button" ng-click="getPools()">Get Pools</button>
-	<table class="table table-striped table-hover">
-		<caption>Pools</caption>
-		<tr>
-			<th>Id</th>
-			<th>Name</th>
-			<th>Composition Strategy</th>
-		</tr>
-	<tr ng-repeat="pool in pools | filter:query | orderBy:poolId">
 
-		<td>{{pool.poolId}}  </td>
-		<td>{{pool.poolName}}  </td>
-		<td>{{pool.compositionStrategy}}  </td>
-	</tr>
-	</table>
-</div>
+<div ng-controller="PoolsController">
+	<div ng-style="">
+		<menu visible="visible" alignment="left">
+			<menu-item hash="managePools"><a ng-click="getPools()">Manage Pools</a></menu-item>
+		</menu>
+	</div>
+
+		<div>
+			Search: <input ng-model="query"><br>
+			<select ng-model="orderProp">
+				<option value="poolName">Alphabetical</option>
+				<option value="poolId">Id</option>
+			</select>
+			<br>
+			<table class="table table-striped table-hover">
+				<caption>Pools</caption>
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Composition Strategy</th>
+				</tr>
+			<tr ng-repeat="pool in pools | filter:query | orderBy:poolId">
+
+				<td>{{pool.poolId}}  </td>
+				<td>{{pool.poolName}}  </td>
+				<td>{{pool.compositionStrategy}}  </td>
+			</tr>
+			</table>
+		</div>
+	</div>
 </body>
 </html>

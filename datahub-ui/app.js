@@ -9,13 +9,21 @@
  * Information and shall use it only in accordance with the terms of the
  * license agreement you entered into with hybris.
  */
-var datahub = angular.module('datahubUI', []);
+var datahub = angular.module('datahubUI', ['ngRoute', 'smart-table']);
 
-datahub.controller('ExampleController', ['$scope','$http', function ($scope, $http) {
-	$scope.applicationName = "Datahub UI";
-}]);
+datahub.config(function ($routeProvider) {
+	$routeProvider
+		.when('/manageFeeds', {
+			templateUrl: 'feeds.html',
+			controller: 'FeedsController'
+		})
+		.when('/managePools', {
+			templateUrl: 'pools.html',
+			controller: 'PoolsController'
+		})
+});
 
-datahub.controller('FeedsController', ['$scope','$http', function ($scope, $http) {
+datahub.controller('FeedsController', ['$scope', '$http', function ($scope, $http) {
 	$scope.feeds = [];
 
 	$scope.getFeeds = function () {
@@ -31,7 +39,7 @@ datahub.controller('FeedsController', ['$scope','$http', function ($scope, $http
 	}
 }]);
 
-datahub.controller('PoolsController', ['$scope','$http', function ($scope, $http) {
+datahub.controller('PoolsController', ['$scope', '$http', function ($scope, $http) {
 	$scope.pools = [];
 
 	$scope.getPools = function () {

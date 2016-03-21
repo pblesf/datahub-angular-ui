@@ -9,7 +9,7 @@
  * Information and shall use it only in accordance with the terms of the
  * license agreement you entered into with hybris.
  */
-var datahub = angular.module('datahubUI', ['ngRoute', 'smart-table']);
+var datahub = angular.module('datahubUI', ['ngRoute', 'smart-table', 'ui.bootstrap']);
 
 datahub.config(function ($routeProvider) {
 	$routeProvider
@@ -36,6 +36,26 @@ datahub.controller('FeedsController', ['$scope', '$http', function ($scope, $htt
 				$scope.feeds = data;
 				console.log($scope.feeds)
 			})
+	}
+
+	$scope.viewby = 10;
+	$scope.totalItems = $scope.feeds.length;
+	$scope.currentPage = 1;
+	$scope.itemsPerPage = $scope.viewby;
+	$scope.maxSize = 5;
+
+	$scope.setPage = function (pageNo) {
+		$scope.currentPage = pageNo;
+	};
+
+	$scope.setItemsPerPage = function(num) {
+		$scope.itemsPerPage = num;
+		$scope.currentPage = 1; //reset to first paghe
+	}
+
+	$scope.sort = function(keyname){
+		$scope.sortKey = keyname;   //set the sortKey to the param passed
+		$scope.reverse = !$scope.reverse; //if true make it false and vice versa
 	}
 }]);
 

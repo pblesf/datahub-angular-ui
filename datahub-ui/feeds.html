@@ -9,7 +9,7 @@
   ~ Information and shall use it only in accordance with the terms of the
   ~ license agreement you entered into with hybris.
   -->
-<div class="jumbotron text-center" ng-init="getFeeds()">
+<div class="container text-center" ng-init="getFeeds()">
 
 
 	<div class="form-group has-feedback">
@@ -19,7 +19,7 @@
 	</div>
 
 	<br>
-	<table st-table="feeds" class="table table-responsive table-striped table-hover">
+	<table st-table="feeds" class="table-striped table table-hover">
 		<caption>Feeds</caption>
 		<thead>
 		<tr>
@@ -42,22 +42,22 @@
 		</tr>
 		</thead>
 		<tbody>
-		<tr ng-repeat="feed in feeds| filter:search | orderBy:sortKey:reverse">
-			<th st-ratio="10">{{feed.feedId}}
+		<tr ng-repeat="feed in feeds.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))| filter:search | orderBy:sortKey:reverse ">
+			<th st-ratio="10">
+				{{feed.feedId}}
 			</td>
-			<th st-ratio="20">{{feed.name}}
+			<th st-ratio="20">
+				{{feed.name}}
 			</td>
-			<th st-ratio="40">{{feed.description}}
+			<th st-ratio="40">
+				{{feed.description}}
 			</td>
-			<th st-ratio="30">{{feed.poolingStrategy}}
+			<th st-ratio="30">
+				{{feed.poolingStrategy}}
 			</td>
 		</tr>
 		</tbody>
-		<tfoot>
-		<tr>
-			<td class="text-center pagination" st-pagination="" st-items-by-page="2" colspan="4">
-			</td>
-		</tr>
-		</tfoot>
+		<pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm"
+					boundary-links="true" items-per-page="itemsPerPage"></pagination>
 	</table>
 </div>
